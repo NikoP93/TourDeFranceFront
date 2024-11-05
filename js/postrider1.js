@@ -1,4 +1,4 @@
-import {fetchAnyUrl,postObjectAsJson} from "./modulejson.js";
+import {fetchAnyUrl,postObjectAsJson,fillTeamsDropdown} from "./modulejson.js";
 
 console.log("jeg er i postrider1")
 
@@ -55,18 +55,11 @@ async function postFormDataAsJson(url,formData) {
     return resp
 }
 
-async function fillTeamsDropdown() {
-    const teams = await fetchAnyUrl(getTeamsUrl)
-    console.log("Fetched teams",teams)
-    teams.forEach(team => {
-        const option = document.createElement("option");
-        option.value = team.teamid;
-        option.textContent = team.teamName;
-        ddTeam.appendChild(option);
-    })
+async function initializeForm(){
+    await fillTeamsDropdown(ddTeam,getTeamsUrl)
 }
 
-window.onload = fillTeamsDropdown()
+window.onload = initializeForm()
 
 document.addEventListener('DOMContentLoaded',createFormEventListener)
 
