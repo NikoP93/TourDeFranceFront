@@ -64,6 +64,12 @@ export function showEditForm(rider) {
     document.getElementById("editSprintPoints").value = rider.sprintPoints;
     document.getElementById("editMountainPoints").value = rider.mountainPoints;
 
+    fillTeamsDropdown(document.getElementById("editTeam"),getTeamsUrl).then(()=> {
+        const teamDropdown = document.getElementById("editTeam");
+
+        teamDropdown.value = rider.team.teamid;
+    })
+
     // Show the edit form
     editRiderSection.style.display = "flex";
 
