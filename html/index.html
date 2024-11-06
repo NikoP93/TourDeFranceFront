@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>SPA Template</title>
+</head>
+
+<body>
+<!-- Navigation Bar -->
+<nav aria-label="Main navigation">
+    <a href="#home" class="view-link">Hjem</a>
+    <a href="#riders" class="view-link">Ryttere</a>
+    <a href="#addRider" class="view-link">Tilføj Rytter</a>
+
+</nav>
+
+<!-- Main Content -->
+<main>
+    <!-- Each section corresponds to a view -->
+    <section id="home" class="view-content">
+        <header>
+            <h2>Home</h2>
+        </header>
+        <p>Welcome to the homepage. This is where the main content resides.</p>
+    </section>
+
+    <section id="riders" class="view-content">
+        <header>
+            <h2>Riders</h2>
+        </header>
+        <table class="table" id="tableRiders">
+            <tr id="colhead">
+                <th>Navn</th>
+                <th>Alder</th>
+                <th>Tid</th>
+                <th>Sprint points</th>
+                <th>Bjerg points</th>
+                <th>Hold</th>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Add rider view -->
+
+    <section id="addRider" class="view-content">
+        <header>
+            <h2>Tilføj Rytter</h2>
+        </header>
+        <form id="postRider" action="http://localhost:8080/riders" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br><br>
+
+            <label for="totalTime">Total Time (in seconds):</label>
+            <input type="number" step="0.01" id="totalTime" name="totalTime" required><br><br>
+
+            <label for="sprintPoints">Sprint Points:</label>
+            <input type="number" id="sprintPoints" name="sprintPoints" required><br><br>
+
+            <label for="mountainPoints">Mountain Points:</label>
+            <input type="number" id="mountainPoints" name="mountainPoints" required><br><br>
+
+            <label for="team">Team:</label>
+            <select id="team" name="teamid">
+                <option value="">Vælg hold</option>
+                <!-- Team options will be populated here -->
+            </select><br><br>
+
+            <button id="pbPostRider" type="submit">Add Rider</button>
+        </form>
+    </section>
+
+    <form id="editRiderForm" style="display:none;">
+        <input type="hidden" id="editRiderId" name="riderId"/>
+        <label for="editName">Name:</label>
+        <input type="text" id="editName" name="name" required/>
+
+        <label for="editAge">Age:</label>
+        <input type="number" id="editAge" name="age" required/>
+
+        <label for="editTotalTime">Total Time:</label>
+        <input type="text" id="editTotalTime" name="totalTime" required/>
+
+        <label for="editSprintPoints">Sprint Points:</label>
+        <input type="text" id="editSprintPoints" name="sprintPoints" required/>
+
+        <label for="editMountainPoints">Mountain Points:</label>
+        <input type="text" id="editMountainPoints" name="mountainPoints" required/>
+
+        <label for="editTeam">Team:</label>
+        <select id="editTeam" name="teamid" required></select>
+
+        <button type="submit">Update Rider</button>
+    </form>
+
+
+</main>
+
+<!-- This loads javascript with type = "module" which allows us to use ES6 modules. -->
+<script src="../js/index.js" type="module"></script>
+<script src="../js/putrider.js" type="module"></script>
+</body>
+</html>

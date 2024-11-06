@@ -1,4 +1,5 @@
 import {fetchAnyUrl,restDelete,fillTeamsDropdown} from "./modulejson.js";
+import {showEditForm} from "./putrider.js";
 
 
 console.log("Jeg er i rider table")
@@ -46,7 +47,9 @@ function createTable(rider) {
     cell = row.insertCell(cellcount++);
     const editButton = document.createElement("button");
     editButton.textContent = "Edit";
-    editButton.onclick ; // Set up event to show edit form
+    editButton.onclick = function () {
+        showEditForm(rider)
+    }
     cell.appendChild(editButton);
 }
 
@@ -78,5 +81,7 @@ async function deleteRider(rider){
     }
 
 
-    document.addEventListener('DOMContentLoaded',actionGetRiders)
+    export function initializeRiderTable(){
+    fetchRiders();
+    }
 

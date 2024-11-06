@@ -5,13 +5,17 @@ console.log("jeg er i postrider1")
 let formRider;
 const getTeamsUrl = "http://localhost:8080/teams"
 const urlPostRider = "http://localhost:8080/riders"
-const ddTeam = document.getElementById("team")
 
+export function initializePostRiderView(){
+    const formRider = document.getElementById("postRider");
+    const ddTeam = document.getElementById("team")
 
-function createFormEventListener(){
-    formRider = document.getElementById("postRider")
-    formRider.addEventListener('submit', handleFormSubmit)
+    fillTeamsDropdown(ddTeam,getTeamsUrl)
+
+    formRider.addEventListener('submit',handleFormSubmit)
 }
+
+
 
 async function handleFormSubmit(event) {
     event.preventDefault();
@@ -55,13 +59,6 @@ async function postFormDataAsJson(url,formData) {
     return resp
 }
 
-async function initializeForm(){
-    await fillTeamsDropdown(ddTeam,getTeamsUrl)
-}
-
-window.onload = initializeForm()
-
-document.addEventListener('DOMContentLoaded',createFormEventListener)
 
 
 
