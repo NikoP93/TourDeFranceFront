@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../css/style.css"/>
     <title>SPA Template</title>
 </head>
 
@@ -75,28 +75,30 @@
         </form>
     </section>
 
-    <form id="editRiderForm" style="display:none;">
-        <input type="hidden" id="editRiderId" name="riderId"/>
-        <label for="editName">Name:</label>
-        <input type="text" id="editName" name="name" required/>
-
-        <label for="editAge">Age:</label>
-        <input type="number" id="editAge" name="age" required/>
-
-        <label for="editTotalTime">Total Time:</label>
-        <input type="text" id="editTotalTime" name="totalTime" required/>
-
-        <label for="editSprintPoints">Sprint Points:</label>
-        <input type="text" id="editSprintPoints" name="sprintPoints" required/>
-
-        <label for="editMountainPoints">Mountain Points:</label>
-        <input type="text" id="editMountainPoints" name="mountainPoints" required/>
-
-        <label for="editTeam">Team:</label>
-        <select id="editTeam" name="teamid" required></select>
-
-        <button type="submit">Update Rider</button>
-    </form>
+    <section id="editRiderSection" style="display:none;">
+        <div id="editRiderForms">
+            <header>
+                <h2>Edit Rider</h2>
+            </header>
+            <form id="editRiderForm">
+                <input type="hidden" id="editRiderId" name="riderId"/>
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" name="name" required/>
+                <label for="editAge">Age:</label>
+                <input type="number" id="editAge" name="age" required/>
+                <label for="editTotalTime">Total Time:</label>
+                <input type="text" id="editTotalTime" name="totalTime" required/>
+                <label for="editSprintPoints">Sprint Points:</label>
+                <input type="text" id="editSprintPoints" name="sprintPoints" required/>
+                <label for="editMountainPoints">Mountain Points:</label>
+                <input type="text" id="editMountainPoints" name="mountainPoints" required/>
+                <label for="editTeam">Team:</label>
+                <select id="editTeam" name="teamid" required></select>
+                <button type="submit">Update Rider</button>
+                <button type="button" id="cancelEditButton">Cancel</button>
+            </form>
+        </div>
+    </section>
 
 
 </main>

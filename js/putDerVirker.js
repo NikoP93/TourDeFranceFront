@@ -26,11 +26,6 @@ async function handleEditFormSubmit(event) {
     try {
         const formData = new FormData(form);
         await updateRiderDataAsJson(url, formData);
-        alert("Rider updated successfully!");
-
-        // Hide the edit form and show the riders section again
-        hideEditForm();
-        document.getElementById("riders").style.display = "block"; // Show the riders section
     } catch (error) {
         alert(error.message);
         console.log(error);
@@ -50,12 +45,19 @@ async function updateRiderDataAsJson(url, formData) {
         const errorMessage = await resp.text();
         console.error(errorMessage);
         alert(errorMessage);
+    } else {
+        alert("Rider updated");
+        editRiderForm.style.display = "none"; // Hide the edit form after successful update
+        // Optionally refresh the riders list here
     }
 }
 
 // Show the edit form and populate it with the rider's data
 export function showEditForm(rider) {
+
     const editRiderSection = document.getElementById("editRiderSection");
+
+
 
     document.getElementById("editRiderId").value = rider.id;
     document.getElementById("editName").value = rider.name;
@@ -64,23 +66,15 @@ export function showEditForm(rider) {
     document.getElementById("editSprintPoints").value = rider.sprintPoints;
     document.getElementById("editMountainPoints").value = rider.mountainPoints;
 
-    // Show the edit form
-    editRiderSection.style.display = "flex";
+    editRiderSection.style.display = "flex"
 
-    // Hide the riders section while editing
-    document.getElementById("riders").style.display = "none";
+    initializeEditForm()
 
-    initializeEditForm();
 }
 
-// Hide the edit form
-function hideEditForm() {
-    document.getElementById("editRiderSection").style.display = "none";
+function hideEditForm(){
+    document.getElementById("editRiderForm").style.display = "none";
+
 }
 
-// Cancel button event listener
-document.getElementById("cancelEditButton").addEventListener("click", () => {
-    // Hide the edit form and show the riders section
-    hideEditForm();
-    document.getElementById("riders").style.display = "block"; // Show the riders section
-});
+document.getElementById("cancelEditButton").addEventListener("click", hideEditForm);

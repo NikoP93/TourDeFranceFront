@@ -64,3 +64,48 @@ nav a.active {
 
 /* ---------- Other styling ---------- */
 /* Other styling goes here or in a new css file */
+
+/* Style for the edit form section */
+#editRiderSection {
+    display: none;  /* Initially hidden */
+    position: fixed; /* Fix it to the top of the screen */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the form */
+    z-index: 1000; /* Ensure it is on top of other content */
+}
+
+/* Style for the form */
+#editRiderForm {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Style for the form buttons */
+#editRiderForm button {
+    margin-top: 10px;
+}
+
+/* Optional: style the cancel button */
+#cancelEditButton {
+    margin-top: 10px;
+    background-color: #ccc;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Optional: hover effect for cancel button */
+#cancelEditButton:hover {
+    background-color: #bbb;
+}
