@@ -29,6 +29,8 @@ async function restDelete(url){
 }
 
 async function fillTeamsDropdown(ddTeam,getTeamsUrl) {
+    ddTeam.innerHTML = '';
+
     const teams = await fetchAnyUrl(getTeamsUrl)
     console.log("Fetched teams",teams)
     teams.forEach(team => {

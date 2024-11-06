@@ -8,7 +8,7 @@ const editRiderForm = document.getElementById("editRiderForm");
 
 // Initialize form and event listeners
 async function initializeEditForm() {
-    await fillTeamsDropdown(document.getElementById("editTeam"), getTeamsUrl);
+
     createEditFormEventListener();
 }
 
